@@ -115,7 +115,6 @@ async function editIssue(page) {
   await page.waitForTimeout(2000);
 
   await page.locator('issue-title').getByRole('textbox').click();
-  await page.waitForTimeout(1000);
   await page.locator('issue-title').getByRole('textbox').fill('Edit title test');
   await page.waitForTimeout(2000);
 
@@ -139,9 +138,9 @@ async function editIssue(page) {
 
 // Function to check if the issue is created
 async function verifyIssueEdited(page) {
-  await page.getByText('Edit title test').click();
+  await page.getByText('Task title test Task-').click();
   // Assert that the issue is created and displayed
-  const updatedTitle = await page.getByText('Edit title test');
+  const updatedTitle = await page.getByText('Task title test Task-');
   await expect(updatedTitle).toBeVisible();
 
   const updatedDescription = await page.getByText('Edit description text');
