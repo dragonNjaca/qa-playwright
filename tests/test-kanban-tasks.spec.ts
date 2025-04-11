@@ -115,8 +115,9 @@ async function editIssue(page) {
   await page.waitForTimeout(2000);
 
   await page.locator('issue-title').getByRole('textbox').click();
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1000);
   await page.locator('issue-title').getByRole('textbox').fill('Edit title test');
+  await page.waitForTimeout(2000);
 
   // Edit reporter
   await page.getByRole('button', { name: 'Iron Man' }).click();
